@@ -3,7 +3,7 @@
 FROM base AS dependencies
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json ./
+COPY resume-website/package.json ./
 RUN npm i --legacy-peer-deps
 
 FROM base AS builder
@@ -12,7 +12,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV="production"
 WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY . .
+COPY resume-website .
 RUN npm run build
 
 FROM base AS runner
