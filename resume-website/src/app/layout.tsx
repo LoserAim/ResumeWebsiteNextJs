@@ -1,4 +1,5 @@
 import React, {JSX} from "react";
+import Sidebar from "@/_components/layout/Sidebar";
 
 interface IRootLayout {
   children: React.ReactNode;
@@ -10,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+      <Sidebar>
+          {children}
+      </Sidebar>
       </body>
     </html>
   );
