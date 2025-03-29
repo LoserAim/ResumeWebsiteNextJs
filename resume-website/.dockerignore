@@ -1,0 +1,7 @@
+﻿.git/
+
+/node_modules
+/out/
+
+.env*.local
+.vercel
