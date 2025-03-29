@@ -1,7 +1,7 @@
 name: AWS Docker Push Nextjs App
 on: 
   push: 
-    branches: [ "master" ]
+    branches: [ "main" ]
   
 jobs:
   Build-docker-image:
