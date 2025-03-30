@@ -7,10 +7,10 @@ jobs:
   Build-docker-image:
    
   
-    name: Build Docker Image
+    name: Build Docker Image and Push
     runs-on: ubuntu-latest  
     steps:  
-        - name: Checkout
+        - name: Checkout Branch
           uses: actions/checkout@v2    
           
         - name: Setup AWS ECR Details
@@ -24,6 +24,8 @@ jobs:
         - name: Login to Amazon ECR
           id: login-pf-aws-ecr
           uses: aws-actions/amazon-ecr-login@v1
+          with:
+            mask-password: 'true'
           
 
         - name: Build and push the tagged docker image to Amazon ECR
