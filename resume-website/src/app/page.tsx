@@ -8,10 +8,10 @@ export default function Home() {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box sx={{ flexGrow: 1 }} maxWidth={"lg"}>
           <Grid container direction="row" spacing={2} sx={{justifyContent: "center"}}>
-            <Grid size={4} >
+            <Grid size={{xs: 12, md: 4}} >
               <ProfileCard />
             </Grid>
-            <Grid size={6}>
+            <Grid size={{xs: 12, md: 8}}>
               <EducationCard />
             </Grid>
           </Grid>
