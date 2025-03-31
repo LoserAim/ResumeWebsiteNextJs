@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import {Box} from "@mui/material";
 
 interface IEducationEntryProps {
     degree: string;
@@ -25,7 +25,6 @@ const EducationEntry = ({
             {overallGpa && <Typography variant="body2" sx={{mt: 1}}>
                 {overallGpa}
             </Typography>}
-
         </Box>
     );
 };
