@@ -23,7 +23,6 @@ const EducationCard = () => {
                     degree={"Associate's in Computer Science"}
                     yearMonthCompletion={"June 2018"}
                     school={"Portland Community College - Portland, OR"}
-                    overallGpa={"Overall GPA: 3.57"}
                 />
             </CardContent>
         </Card>

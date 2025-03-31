@@ -6,14 +6,14 @@ interface IEducationEntryProps {
     degree: string;
     yearMonthCompletion: string;
     school: string;
-    overallGpa: string;
+    overallGpa?: string | undefined;
 }
 
 const EducationEntry = ({
                             degree,
                             yearMonthCompletion,
                             school,
-                            overallGpa
+                            overallGpa = undefined,
                         }: IEducationEntryProps) => {
     return (
         <Box sx={{marginLeft: 2}}>
@@ -22,9 +22,9 @@ const EducationEntry = ({
             <Typography variant="body2" sx={{mt: 1}}>
                 {school}
             </Typography>
-            <Typography variant="body2" sx={{mt: 1}}>
+            {overallGpa && <Typography variant="body2" sx={{mt: 1}}>
                 {overallGpa}
-            </Typography>
+            </Typography>}
         </Box>
     );
 };
