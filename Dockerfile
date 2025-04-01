@@ -1,5 +1,9 @@
 ﻿FROM node:23-alpine AS base
 
+ARG VERSION=${VERSION}
+
+ENV VERSION=${VERSION}
+
 FROM base AS dependencies
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
