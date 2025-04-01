@@ -1,9 +1,5 @@
 ﻿FROM node:23-alpine AS base
 
-ARG VERSION=${VERSION}
-
-ENV VERSION=${VERSION}
-
 FROM base AS dependencies
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -14,6 +10,8 @@ FROM base AS builder
 ENV NEXT_PRIVATE_STANDALONE=true
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV="production"
+ARG VERSION=${VERSION}
+ENV NEXT_PUBLIC_VERSION=${VERSION}
 WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY resume-website .

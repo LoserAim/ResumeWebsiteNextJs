@@ -178,7 +178,7 @@ export default function Sidebar({children}: ISidebarProps) {
                          justifyContent="flex-end">
                         <Divider />
                         <Typography marginInlineEnd={2} mt={1} variant="body2" textAlign={"end"} color={theme.palette.text.secondary}>
-                            Version: {process?.env?.VERSION ?? "1.0"}
+                            Version: {process?.env?.NEXT_PUBLIC_VERSION ?? "1.0"}
                         </Typography>
                     </Box>
                 </Stack>
