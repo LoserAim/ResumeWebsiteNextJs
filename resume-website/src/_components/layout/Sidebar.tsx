@@ -1,10 +1,10 @@
 ﻿"use client"
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
@@ -13,11 +13,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Stack from '@mui/material/Stack';
+
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
+const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
     open?: boolean;
-}>(({ theme }) => ({
+}>(({theme}) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
@@ -25,12 +27,12 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
         duration: theme.transitions.duration.leavingScreen,
     }),
     palette: {
-    // TODO: Maybe add some custom colors
+        // TODO: Maybe add some custom colors
     },
     marginLeft: `-${drawerWidth}px`,
     variants: [
         {
-            props: ({ open }) => open,
+            props: ({open}) => open,
             style: {
                 transition: theme.transitions.create('margin', {
                     easing: theme.transitions.easing.easeOut,
@@ -48,14 +50,14 @@ interface AppBarProps extends MuiAppBarProps {
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme }) => ({
+})<AppBarProps>(({theme}) => ({
     transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
     variants: [
         {
-            props: ({ open }) => open,
+            props: ({open}) => open,
             style: {
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: `${drawerWidth}px`,
@@ -68,7 +70,7 @@ const AppBar = styled(MuiAppBar, {
     ],
 }));
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -76,9 +78,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
+
 interface ISidebarProps {
     children: React.ReactNode;
 }
+
 export default function Sidebar({children}: ISidebarProps) {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -92,8 +96,8 @@ export default function Sidebar({children}: ISidebarProps) {
     };
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
+        <Box sx={{display: 'flex'}}>
+            <CssBaseline/>
             <AppBar position="fixed" open={open} color={"primary"}>
                 <Toolbar>
                     <IconButton
@@ -105,10 +109,10 @@ export default function Sidebar({children}: ISidebarProps) {
                             {
                                 mr: 2,
                             },
-                            open && { display: 'none' },
+                            open && {display: 'none'},
                         ]}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Andrew Doser Resume
@@ -128,44 +132,63 @@ export default function Sidebar({children}: ISidebarProps) {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader>
-                    Navigation
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                <Divider />
-                <List>
-                {/*    TODO:: Add some links */}
-                {/*    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (*/}
-                {/*        <ListItem key={text} disablePadding>*/}
-                {/*            <ListItemButton>*/}
-                {/*                <ListItemIcon>*/}
-                {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
-                {/*                </ListItemIcon>*/}
-                {/*                <ListItemText primary={text} />*/}
-                {/*            </ListItemButton>*/}
-                {/*        </ListItem>*/}
-                {/*    ))}*/}
-                {/*</List>*/}
-                {/*<Divider />*/}
-                {/*<List>*/}
-                {/*    {['All mail', 'Trash', 'Spam'].map((text, index) => (*/}
-                {/*        <ListItem key={text} disablePadding>*/}
-                {/*            <ListItemButton>*/}
-                {/*                <ListItemIcon>*/}
-                {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
-                {/*                </ListItemIcon>*/}
-                {/*                <ListItemText primary={text} />*/}
-                {/*            </ListItemButton>*/}
-                {/*        </ListItem>*/}
-                {/*    ))}*/}
-                </List>
+                <Stack justifyContent="space-between" height={"100%"} spacing={1}>
+
+                    <Box sx={{ flex: "0 1 auto"}}>
+                        <DrawerHeader>
+                            Navigation
+                            <IconButton onClick={handleDrawerClose}>
+                                {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
+                            </IconButton>
+                        </DrawerHeader>
+                        <Divider/>
+                    </Box>
+                    <Box sx={{flex: "1 1 auto"}} alignItems="start" >
+                        <List >
+                            test
+                            {/*    TODO:: Add some links */}
+                            {/*    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (*/}
+                            {/*        <ListItem key={text} disablePadding>*/}
+                            {/*            <ListItemButton>*/}
+                            {/*                <ListItemIcon>*/}
+                            {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
+                            {/*                </ListItemIcon>*/}
+                            {/*                <ListItemText primary={text} />*/}
+                            {/*            </ListItemButton>*/}
+                            {/*        </ListItem>*/}
+                            {/*    ))}*/}
+                            {/*</List>*/}
+                            {/*<Divider />*/}
+                            {/*<List>*/}
+                            {/*    {['All mail', 'Trash', 'Spam'].map((text, index) => (*/}
+                            {/*        <ListItem key={text} disablePadding>*/}
+                            {/*            <ListItemButton>*/}
+                            {/*                <ListItemIcon>*/}
+                            {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
+                            {/*                </ListItemIcon>*/}
+                            {/*                <ListItemText primary={text} />*/}
+                            {/*            </ListItemButton>*/}
+                            {/*        </ListItem>*/}
+                            {/*    ))}*/}
+                        </List>
+                    </Box>
+
+
+                    <Box sx={{flex: "0 1 40px"}}
+                         justifyContent="flex-end">
+                        <Divider />
+                        <Typography marginInlineEnd={2} mt={1} variant="body2" textAlign={"end"} color={theme.palette.text.secondary}>
+                            Version: {process?.env?.VERSION ?? "1.0"}
+                        </Typography>
+                    </Box>
+                </Stack>
+
             </Drawer>
             <Main open={open}>
-                <DrawerHeader />
+                <DrawerHeader/>
                 {children}
             </Main>
+
         </Box>
     );
 }
