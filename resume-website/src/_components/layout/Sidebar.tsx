@@ -6,6 +6,8 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import HomeFilledIcon from '@mui/icons-material/HomeFilled';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -14,6 +16,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Stack from '@mui/material/Stack';
+import NextLink from 'next/link'
+import {ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import SideNavigation from "@/_components/layout/SideNavigation";
 
 const drawerWidth = 240;
 
@@ -134,7 +139,7 @@ export default function Sidebar({children}: ISidebarProps) {
             >
                 <Stack justifyContent="space-between" height={"100%"} spacing={1}>
 
-                    <Box sx={{ flex: "0 1 auto"}}>
+                    <Box sx={{flex: "0 1 auto"}}>
                         <DrawerHeader>
                             Navigation
                             <IconButton onClick={handleDrawerClose}>
@@ -143,41 +148,16 @@ export default function Sidebar({children}: ISidebarProps) {
                         </DrawerHeader>
                         <Divider/>
                     </Box>
-                    <Box sx={{flex: "1 1 auto"}} alignItems="start" >
-                        <List >
-                            test
-                            {/*    TODO:: Add some links */}
-                            {/*    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (*/}
-                            {/*        <ListItem key={text} disablePadding>*/}
-                            {/*            <ListItemButton>*/}
-                            {/*                <ListItemIcon>*/}
-                            {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
-                            {/*                </ListItemIcon>*/}
-                            {/*                <ListItemText primary={text} />*/}
-                            {/*            </ListItemButton>*/}
-                            {/*        </ListItem>*/}
-                            {/*    ))}*/}
-                            {/*</List>*/}
-                            {/*<Divider />*/}
-                            {/*<List>*/}
-                            {/*    {['All mail', 'Trash', 'Spam'].map((text, index) => (*/}
-                            {/*        <ListItem key={text} disablePadding>*/}
-                            {/*            <ListItemButton>*/}
-                            {/*                <ListItemIcon>*/}
-                            {/*                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
-                            {/*                </ListItemIcon>*/}
-                            {/*                <ListItemText primary={text} />*/}
-                            {/*            </ListItemButton>*/}
-                            {/*        </ListItem>*/}
-                            {/*    ))}*/}
-                        </List>
+                    <Box sx={{flex: "1 1 auto"}} alignItems="start">
+                        <SideNavigation />
                     </Box>
 
 
                     <Box sx={{flex: "0 1 40px"}}
                          justifyContent="flex-end">
-                        <Divider />
-                        <Typography marginInlineEnd={2} mt={1} variant="body2" textAlign={"end"} color={theme.palette.text.secondary}>
+                        <Divider/>
+                        <Typography marginInlineEnd={2} mt={1} variant="body2" textAlign={"end"}
+                                    color={theme.palette.text.secondary}>
                             Version: {process?.env?.NEXT_PUBLIC_VERSION ?? "1.0"}
                         </Typography>
                     </Box>

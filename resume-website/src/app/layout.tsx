@@ -1,5 +1,5 @@
 import React, {JSX} from "react";
-import Sidebar from "@/_components/layout/Sidebar";
+import Layout from "@/_components/layout/Layout";
 
 interface IRootLayout {
   children: React.ReactNode;
@@ -9,12 +9,8 @@ export default function RootLayout({
   children,
 }: IRootLayout): JSX.Element {
   return (
-    <html lang="en">
-      <body>
-      <Sidebar>
+      <Layout>
           {children}
-      </Sidebar>
-      </body>
-    </html>
+      </Layout>
   );
 }
