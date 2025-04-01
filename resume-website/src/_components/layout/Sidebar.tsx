@@ -6,9 +6,6 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import HomeFilledIcon from '@mui/icons-material/HomeFilled';
-import ReviewsIcon from '@mui/icons-material/Reviews';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -16,8 +13,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Stack from '@mui/material/Stack';
-import NextLink from 'next/link'
-import {ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import SideNavigation from "@/_components/layout/SideNavigation";
 
 const drawerWidth = 240;
