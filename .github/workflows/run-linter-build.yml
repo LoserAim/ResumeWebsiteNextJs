@@ -18,12 +18,15 @@ jobs:
             cache: 'npm'
         - name: Install dependencies
           run: npm i --legacy-peer-deps
+          working-directory: ./resume-website
 
         - name: Run Linter
           run: npm run lint
+          working-directory: ./resume-website
 
         - name: Build application
           run: npm run build
+          working-directory: ./resume-website
           env:
             CI: true
 
