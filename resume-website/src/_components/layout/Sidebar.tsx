@@ -27,7 +27,7 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
         duration: theme.transitions.duration.leavingScreen,
     }),
     palette: {
-        // TODO: Maybe add some custom colors
+        // TODO: Maybe add some custom colors test
     },
     marginLeft: `-${drawerWidth}px`,
     variants: [
