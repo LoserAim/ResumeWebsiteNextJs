@@ -1,7 +1,6 @@
 import React from 'react';
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import Card from "@mui/material/Card";
 import ExperienceEntry from "@/_components/typography/ExperienceEntry";
 import {jobData} from "@/_constants/Jobs";

@@ -6,9 +6,16 @@ import Typography from "@mui/material/Typography";
 import {format, formatDuration, intervalToDuration} from "date-fns";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import {Button, Chip, Collapse, IconButtonProps, Link, List, ListItem, ListItemText, Stack} from "@mui/material";
+import Chip from "@mui/material/Chip";
+import Collapse from "@mui/material/Collapse";
+import Link from "@mui/material/Link";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from "@mui/material/IconButton";
+import {type IconButtonProps} from "@mui/material";
 
 export interface IExperienceEntry {
     job: string;
@@ -122,7 +129,7 @@ const ExperienceEntry = ({
                 <Box display={"flex"} sx={{flex: "0 0 60px"}} justifyContent={"flex-end"} alignItems={"center"}>
                     <ExpandMore
                         expand={expanded}
-                        aria-expanded={`${expanded}`}
+                        aria-expanded={expanded}
                         aria-label="show more"
                     >
                         <ExpandMoreIcon/>
