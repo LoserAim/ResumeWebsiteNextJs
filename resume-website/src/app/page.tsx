@@ -1,8 +1,9 @@
-import {Box, Grid } from "@mui/material";
+import {Box, Grid, Stack } from "@mui/material";
 import React from "react";
 import ProfileCard from "@/_components/cards/ProfileCard";
 import EducationCard from "@/_components/cards/EducationCard";
 import {NextPageWithLayout} from "@/app/_app";
+import ExperienceCard from "@/_components/cards/ExperienceCard";
 
 const Home: NextPageWithLayout = () => {
     return (
@@ -13,7 +14,12 @@ const Home: NextPageWithLayout = () => {
                         <ProfileCard />
                     </Grid>
                     <Grid size={{xs: 12, md: 8}}>
-                        <EducationCard />
+                        <Stack spacing={2}>
+                            <EducationCard />
+                            <ExperienceCard />
+                        </Stack>
+
+
                     </Grid>
                 </Grid>
             </Box>

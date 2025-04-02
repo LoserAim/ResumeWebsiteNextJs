@@ -1,7 +1,9 @@
-﻿import * as React from 'react';
+﻿"use client"
+
+import * as React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import {Avatar, Box, ListItemButton, ListItemText, Stack} from "@mui/material";
+import {Avatar, Box, ListItem, ListItemButton, ListItemText, Stack} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import List from '@mui/material/List';
 import CardContent from "@mui/material/CardContent";
@@ -16,13 +18,16 @@ export default function ProfileCard() {
                 <Typography variant="h5" component="div" sx={{mt: 2}}>
                     Andrew Doser
                 </Typography>
+                <Typography textAlign={"center"} variant="h6" color={"text.secondary"} component="div">
+                    Senior Full-Stack Software Engineer
+                </Typography>
             </Box>
             <Divider sx={{mt: 2}}/>
             <CardContent>
                 <List component="nav" dense>
                     {profile.map((item, index) => {
                         return (
-                            <ListItemButton key={index}>
+                            <ListItemButton key={index} onClick={item.onClick}>
                                 <ListIcon icon={item.icon} title={item.title} subtitle={item.subtitle}/>
                             </ListItemButton>
                         );
@@ -35,12 +40,12 @@ export default function ProfileCard() {
                     <Typography variant="h6" component="div">
                         Areas of Expertise
                     </Typography>
-                    <List component="nav" dense>
+                    <List component="nav" dense disablePadding>
                         {Expertise.map((item, index) => {
                             return (
-                                <ListItemButton key={index}>
-                                    <ListItemText primary={item} />
-                                </ListItemButton>
+                                <ListItem key={index}>
+                                    <ListItemText primary={item}/>
+                                </ListItem>
                             );
                         })}
                     </List>
@@ -55,10 +60,10 @@ export default function ProfileCard() {
                     <List component="nav" dense>
                         {Skills.map((item, index) => {
                             return (
-                                <ListItemButton key={index}>
+                                <ListItem key={index}>
                                     <ListItemText primary={item.title}
                                                   secondary={item.subtitle.join(", ")}/>
-                                </ListItemButton>
+                                </ListItem>
                             );
                         })}
                     </List>

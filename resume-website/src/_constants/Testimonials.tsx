@@ -5,6 +5,12 @@ type TTestimonialData = ITestimonialCard[]
 
 export const data: TTestimonialData = [
     {
+        Recommender: "Robert Bosch",
+        externalUrl: "https://www.linkedin.com/in/rbosch1",
+        date: "April 2, 2025",
+        message: "Andrew Doser is a very adept software engineer who excels in navigating complex legacy systems and consistently delivers clean, concise, and thorough solutions. He has a knack for breaking down complex problems into simple solutions and considering valid edge cases that escape the consideration of other engineers he is working with, ensuring robust and stable systems. I greatly appreciated the wit, candor, and perspective Andrew brought to the team; skills that contributed to the success of many projects. I would highly recommend him for any senior software engineering role."
+    },
+    {
         Recommender: "Alex Bishop",
         externalUrl: "https://www.linkedin.com/in/alex-bishop-572430159/",
         date: "April 1, 2025",

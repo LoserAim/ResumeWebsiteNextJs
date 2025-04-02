@@ -5,7 +5,11 @@ Continuous Integration is done using Github Actions.
 
 Continuous Deployment is done using Elastic Registry Service and Elastic Container Service.
 
-Future Goals:
+## Completed Goals:
+
+- [x] Add Continuous Deployment using AWS Lambda, EventBridge, ECR and ECS.
+
+## Future Goals:
 
 - [ ] Add unit testing
 - [ ] Add database
