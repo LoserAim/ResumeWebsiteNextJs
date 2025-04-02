@@ -1,3 +1,4 @@
+"use client"
 import React, {JSX} from "react";
 import Layout from "@/_components/layout/Layout";
 

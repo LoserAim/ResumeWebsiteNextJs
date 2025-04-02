@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from "@mui/material/Typography";
 import {Box} from "@mui/material";
 
-interface IEducationEntryProps {
+interface IEducationEntry {
     degree: string;
     yearMonthCompletion: string;
     school: string;
@@ -14,7 +14,7 @@ const EducationEntry = ({
                             yearMonthCompletion,
                             school,
                             overallGpa
-                        }: IEducationEntryProps) => {
+                        }: IEducationEntry) => {
     return (
         <Box sx={{marginLeft: 2}}>
             <Typography variant="subtitle1">{degree}</Typography>

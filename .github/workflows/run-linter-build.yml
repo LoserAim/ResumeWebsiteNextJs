@@ -14,16 +14,20 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v3
           with:
+            cache-dependency-path: ./resume-website/package-lock.json
             node-version: '23'
             cache: 'npm'
         - name: Install dependencies
           run: npm i --legacy-peer-deps
+          working-directory: ./resume-website
 
         - name: Run Linter
           run: npm run lint
+          working-directory: ./resume-website
 
         - name: Build application
           run: npm run build
+          working-directory: ./resume-website
           env:
             CI: true
 

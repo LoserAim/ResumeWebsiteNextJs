@@ -6,18 +6,21 @@ type TIcon = {
     icon: React.ReactNode;
     title: string;
     subtitle: string;
+    onClick: (event?: React.MouseEvent<Element, MouseEvent>) => void;
 }
 type TListIcon = TIcon[];
 export const profile: TListIcon = [
     {
         icon: <PhoneIcon/>,
         title: "Phone",
-        subtitle: "+1 (503) 501-9827"
+        subtitle: "+1 (503) 501-9827",
+        onClick: () => window.open("tel:+15035019827")
     },
     {
         icon: <EmailIcon/>,
         title: "Email",
-        subtitle: "drew.doser@gmail.com"
+        subtitle: "drew.doser@gmail.com",
+        onClick: () => window.open("mailto:drew.doser@gmail.com")
     }
 ]
 
