@@ -14,6 +14,7 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v3
           with:
+            cache-dependency-path: ./resume-website/package-lock.json
             node-version: '23'
             cache: 'npm'
         - name: Install dependencies
