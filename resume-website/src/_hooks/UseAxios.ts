@@ -1,16 +1,22 @@
 "use client"
 
 import {useEffect, useState} from 'react';
-import axios from 'axios';
+import axios, {AxiosRequestConfig} from 'axios';
 
 // TODO: will need to update to be a bit more dynamic, but for now will only get.
 const useAxios = <TResponse>(url: string, method: string) => {
     const [data, setData] = useState<TResponse>();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState({});
-    const params = {
+    const params: AxiosRequestConfig = {
         method: method.toUpperCase(),
         url: process?.env?.NEXT_PUBLIC_API_URL + url,
+
+    }
+    if (process?.env?.NEXT_PUBLIC_API_KEY) {
+        params.headers = {
+            "x-api-key": process?.env?.NEXT_PUBLIC_API_KEY
+        }
     }
 
     useEffect(() => {
