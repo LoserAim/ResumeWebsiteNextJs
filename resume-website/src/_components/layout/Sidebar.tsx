@@ -153,7 +153,7 @@ export default function Sidebar({children}: ISidebarProps) {
                         <Divider/>
                         <Typography marginInlineEnd={2} mt={1} variant="body2" textAlign={"end"}
                                     color={theme.palette.text.secondary}>
-                            Version: {process?.env?.NEXT_PUBLIC_VERSION ?? "1.0"}
+                            Version: 1.0.{process?.env?.NEXT_PUBLIC_VERSION ?? "0"}
                         </Typography>
                     </Box>
                 </Stack>

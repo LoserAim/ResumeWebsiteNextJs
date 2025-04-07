@@ -1,12 +1,13 @@
-import React from 'react';
+"use client"
+import React, {useMemo} from 'react';
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import ExperienceEntry from "@/_components/typography/ExperienceEntry";
-import {jobData} from "@/_constants/Jobs";
+import ExperienceEntry, {IExperienceEntry} from "@/_components/typography/ExperienceEntry";
 import Stack from "@mui/material/Stack";
 import {intervalToDuration, add, type Duration, formatDuration} from "date-fns";
 import {Box} from "@mui/material";
+import useAxios from "@/_hooks/UseAxios";
 
 
 export const addDurations = (duration1: Duration, duration2: Duration) => {
@@ -18,16 +19,33 @@ export const addDurations = (duration1: Duration, duration2: Duration) => {
     })
 }
 
-const ExperienceCard = () => {
-    const dates = jobData.map(job => {
-        return job?.finishDate
-            ? intervalToDuration({start: job.startDate, end: job.finishDate})
-            : intervalToDuration({start: job.startDate, end: new Date()});
-    })
-    const totalProfessional = formatDuration(dates.reduce((accumulator, currentValue) =>
-        addDurations(currentValue, accumulator),
-        intervalToDuration({start: new Date(0), end: new Date(0)})), {format: ['years', 'months']})
+// Needed to create a new interface to ingest data from API while maintaining contract on React component
+interface IJob extends Omit<IExperienceEntry, "startDate"|"finishDate"> {
+    startDate: number;
+    finishDate: number;
+}
 
+
+const ExperienceCard = () => {
+    const {data, loading} = useAxios<IJob[]>("/jobs/all", "get");
+    const totalProfessional = useMemo(() => {
+        if (!data)
+            return [];
+        const dates = data.map(job => {
+            const start = new Date(job.startDate);
+            return job?.finishDate
+                ? intervalToDuration({start, end: new Date(job.finishDate)})
+                : intervalToDuration({start, end: new Date()});
+        });
+        return formatDuration(dates.reduce((accumulator, currentValue) =>
+                addDurations(currentValue, accumulator),
+            intervalToDuration({start: new Date(0), end: new Date(0)})), {format: ['years', 'months']});
+    }, [loading])
+
+    if (!loading && data) {
+        // data comes in unsorted by date, should add an index to avoid the extra processing.
+        data.sort((a, b) => b.startDate - a.startDate);
+    }
 
     return (
         <Card sx={{maxWidth: "inherit"}}>
@@ -46,13 +64,13 @@ const ExperienceCard = () => {
                 </Stack>
 
                 <Stack spacing={2}>
-                    {jobData.map((item, index) => (
+                    {!loading && data && data.map((item, index) => (
                         <ExperienceEntry key={index}
                                          job={item.job}
                                          jobType={item.jobType}
                                          company={item.company}
-                                         startDate={item.startDate}
-                                         finishDate={item?.finishDate ?? undefined}
+                                         startDate={new Date(item.startDate)}
+                                         finishDate={item?.finishDate ? new Date(item?.finishDate) : undefined}
                                          summary={item.summary}
                                          commuteType={item.commuteType}
                                          location={item.location}
