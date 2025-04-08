@@ -18,13 +18,12 @@ const useAxios = <TResponse>(url: string, method: string) => {
             "x-api-key": process?.env?.NEXT_PUBLIC_API_KEY
         }
     }
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios(params)
                     .then((response) => {
-                        return JSON.parse(response.data.body) as TResponse;
+                        return response.data as TResponse;
                     }).catch((error) => {
                         setError(error);
                         console.log(error)
