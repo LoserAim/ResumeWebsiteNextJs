@@ -14,6 +14,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Stack from '@mui/material/Stack';
 import SideNavigation from "@/_components/layout/SideNavigation";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const drawerWidth = 240;
 
@@ -100,23 +102,37 @@ export default function Sidebar({children}: ISidebarProps) {
             <CssBaseline/>
             <AppBar position="fixed" open={open} color={"primary"}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={[
-                            {
-                                mr: 2,
-                            },
-                            open && {display: 'none'},
-                        ]}
-                    >
-                        <MenuIcon/>
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Andrew Doser Resume
-                    </Typography>
+                    <Box sx={{display: "flex", flex: "1 1 auto"}}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            sx={[
+                                {
+                                    mr: 2,
+                                },
+                                open && {display: 'none'},
+                            ]}
+                        >
+                            <MenuIcon/>
+                        </IconButton>
+                        <Typography textAlign={"center"} my={"auto"} variant="h6" noWrap component="div">
+                            Resume
+                        </Typography>
+                    </Box>
+
+                    <Box sx={{display: "flex", flex: "0 1 40px"}}>
+                        <IconButton color="primary" target={"_blank"} href={"https://www.linkedin.com/in/andrew-doser/"}>
+                            <LinkedInIcon />
+                        </IconButton>
+                    </Box>
+                    <Box sx={{display: "flex", flex: "0 1 40px"}}>
+                        <IconButton color="default" target={"_blank"} href={"https://github.com/LoserAim/ResumeWebsiteNextJs"}>
+                            <GitHubIcon />
+                        </IconButton>
+                    </Box>
+
                 </Toolbar>
             </AppBar>
             <Drawer

@@ -7,10 +7,10 @@ import React from "react";
 
 const DynamicProfileCard = dynamic(() => import('../dynamic/DynamicProfileCard'),
     {
-        ssr: false,
-        loading: () => <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2}}>
+
+        loading: () => (<Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', my: 3}}>
             <CircularProgress/>
-        </Box>
+        </Box>)
     }
 );
 

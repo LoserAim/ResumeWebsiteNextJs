@@ -1,20 +1,39 @@
 "use client"
-import React, {useEffect} from 'react';
-import {ListItem, ListItemButton, ListItemText, Stack} from "@mui/material";
+import React from 'react';
+import {Box, CircularProgress, ListItem, ListItemButton, ListItemText, Stack} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CardContent from "@mui/material/CardContent";
 import List from "@mui/material/List";
-import {IProfileData, TContact, TSkill} from "@/_constants/ProfileData";
 import ListIcon from "@/_components/typography/ListIcon";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import useAxios from "@/_hooks/UseAxios";
 
+type TContact = {
+    title: string;
+    subtitle: string;
+    href: string;
+}
+
+type TSkill = {
+    title: string;
+    subtitle: string[];
+}
+interface IProfileData {
+    skills: TSkill[];
+    contacts: TContact[];
+    expertise: string[];
+}
+
 
 const DynamicProfileCard = () => {
     const {data: profile, loading: isLoading,} = useAxios<IProfileData>("/profile/latest", "get");
-    useEffect(() => {}, [isLoading])
+    if(isLoading) {
+        return (<Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', my: 3}}>
+            <CircularProgress/>
+        </Box>);
+    }
     return !isLoading && profile !== undefined  && (
         <>
             <Divider sx={{mt: 2}}/>

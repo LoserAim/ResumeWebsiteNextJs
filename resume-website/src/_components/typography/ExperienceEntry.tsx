@@ -40,13 +40,6 @@ const calculateTenure = (startDate: Date, finishDate?: Date): string => {
     return formatDuration(result, {format: ['years', 'months']});
 }
 
-const SummaryPaper = styled(Paper)(({theme}) => ({
-    width: "%100",
-    padding: theme.spacing(2),
-    ...theme.typography.body2,
-    textAlign: 'start',
-}));
-
 
 interface ExpandMoreProps {
     expand: boolean
@@ -97,7 +90,7 @@ const ExperienceEntry = ({
         ? `${format(startDate, "MMMM, yyyy")} - ${format(finishDate, "MMMM, yyyy")} | ${calculateTenure(startDate, finishDate)}`
         : `${format(startDate, "MMMM, yyyy")} - Present | ${calculateTenure(startDate)}`;
     return (
-        <Box mx={2} sx={{border: 1, borderColor: "divider"}} borderRadius={1} p={2}>
+        <Box sx={{border: 1, px:1.5, py:1.5, borderColor: "divider"}} borderRadius={1} p={2}>
             <Typography variant="subtitle1">
                 {job}
             </Typography>
@@ -138,7 +131,7 @@ const ExperienceEntry = ({
             </Stack>
 
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <Box  px={3}>
+                <Box>
                     {skills.map((item, index) => {
                         return <Chip sx={{m: 1}} key={index} label={item}/>;
                     })}
