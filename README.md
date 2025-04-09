@@ -20,5 +20,6 @@ Continuous Deployment is done using Elastic Registry Service and Elastic Contain
 ## Future Goals:
 
 - [ ] Add unit testing
+- [ ] Create a different repo for backend api
 - [ ] Add some other example projects to better showcase skill
 
