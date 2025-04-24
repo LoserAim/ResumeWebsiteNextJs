@@ -8,11 +8,18 @@ Continuous Deployment is done using Elastic Registry Service and Elastic Contain
 ## Completed Goals:
 
 - [x] Add Continuous Deployment using AWS Lambda, EventBridge, ECR and ECS.
-- [x] Add database
+- [x] Add DynamoDB
+- [x] Add Lambdas
+- [x] Add API Gateway
 - [x] Create a different repo for backend api `NOTE: used API Gateway`
+    - [x] Added Profile
+    - [x] Added Jobs
+    - [x] Added Testimonials
+- [x] Add async loading
 
 ## Future Goals:
 
 - [ ] Add unit testing
+- [ ] Create a different repo for backend api
 - [ ] Add some other example projects to better showcase skill
-- [ ] Add async loading
+
