@@ -33,6 +33,7 @@ RUN adduser --system --uid 1001 nextjs
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
@@ -45,4 +46,4 @@ ENV PORT 8080
 EXPOSE 8080
 ENV HOSTNAME 0.0.0.0
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
