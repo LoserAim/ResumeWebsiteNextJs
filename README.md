@@ -16,6 +16,8 @@ Continuous Deployment is done using Elastic Registry Service and Elastic Contain
     - [x] Added Jobs
     - [x] Added Testimonials
 - [x] Add async loading
+- [x] Converted to AWS App Runner from ECS for testing purposes
+  - For some odd reason had to change how the entrypoint to the docker container works. Cannot use standalone server file.
 
 ## Future Goals:
 
