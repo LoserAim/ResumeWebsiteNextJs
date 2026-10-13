@@ -1,10 +1,10 @@
-﻿FROM node:23-alpine AS base
+﻿FROM node:24-alpine AS base
 
 FROM base AS dependencies
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY resume-website/package.json ./
-RUN npm i --legacy-peer-deps
+COPY resume-website/package.json resume-website/package-lock.json ./
+RUN npm ci --legacy-peer-deps
 
 FROM base AS builder
 ENV NEXT_PRIVATE_STANDALONE=true
